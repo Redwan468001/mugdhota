@@ -1,0 +1,366 @@
+
+
+/*		Default Layout: 1200px. 
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+*/
+
+.mob{
+	display: none;
+}
+
+
+
+
+
+/*		Mobile Layout: 800px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 800px) {
+    .container {
+		width: 90% !important;
+	}
+    
+    
+}
+
+
+
+/*		Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 280px) and (max-width: 800px) {
+	
+	.container_full{padding:15px 0 0 0;}
+	.container {
+		width: 100%;
+	}
+	.desk{
+		display: none;
+	}
+	.mob{
+		display: block;
+		padding: 0 5px;
+	}
+	.row{
+		margin-left: -5px !important;
+		margin-right: -5px !important;
+	}
+	
+	/**Header**/
+	.header {
+		padding: 10px 0;
+        position: fixed;
+        top: 0;
+        z-index: 9999999;
+        width: 100%;
+        background: #fff;
+        left: 0px;
+        border-bottom:2px solid #ddd;
+    }
+	.header #web_title img {
+		display: block;
+		margin: 0 auto;
+		height: 50px;
+	}
+	#web_title img {
+		width: 70%;
+	}
+	.src_block{
+		width: 95%;
+	}
+	/**End header**/
+	
+	/**slider**/
+	.owl_car2 {
+        margin: 0px 0 0 0;
+    }
+	.nivoSlider img {
+		height: 200px !important;
+	}
+	/**End slider**/
+	
+	/**Author list**/
+	.item{
+		overflow: hidden;
+		padding: 0;
+	}
+	.item .author_img{
+		width: auto;
+		margin-right: 15px;
+	}
+	.scl_nav ul li {
+      padding: 8px 5px;
+      border-bottom: 1px solid #ddd;
+    }
+	.author_name{
+		line-height: 1.2;
+	}
+	/**End Author list**/
+	/**Author Page**/
+	.author_page {
+        width: 100%;
+        height: 200px;
+    }
+    .sng_author {
+        padding: 10px 14px;
+    }
+    .snp_an{
+        font-size: 23px !important;
+    }
+    .aut_info_t{
+        padding: 0 !important;
+    }
+    .au_cnt {
+        width: 100%;
+    }
+    .au_name{
+        left: 25%;
+    }
+    .ap_img img {
+        width: 80px;
+        height: 80px;
+    }
+    .au_name h2 {
+        font-size: 22px;
+    }
+	/**End Author Page**/
+	
+	/**Single Page**/
+	.smnp{
+	    padding: 0;
+	}
+	#single_page > h2 {
+        font-size: 22px;
+    }
+	.sng_page_cnt p {
+        font-size: 18px;
+    }
+	.sng_page_cnt{
+        padding: 10px 5px;
+    }
+    .cnts2 img {
+        max-height: 225px;
+    }
+    
+    .attachment>p {
+        position: relative;
+        bottom: 0;
+        padding: 8px 13px;
+        background: #e4e4e4e8;
+        width: 100%;
+        margin: 0;
+        font-size: 20px;
+    }
+    .birth_day_p{
+        padding: 10px !important;
+    }
+    .shadhinota_page{
+        padding: 10px !important;
+    }
+	/**End Single Page**/
+	
+	/**Home Page**/
+	.cnt_sec_mob{padding:5px;overflow:hidden}
+	.csm_btm{min-height:165px;background:#eff0efc9;}
+	.ctop_img img{
+	    max-height: 250px;
+	}
+	.cbtm_img img{
+	    max-height: 100px;
+	}
+	.sec_mob_navs > li > a.active {
+        border-bottom: 2px solid #fff;
+        background-color: #fff;
+        border-radius:5px 5px 0 0;
+    }
+	/**End Home Page**/
+	
+	/**Blood Page**/
+	
+	.page_top{
+	    margin-top: 75px;
+	}
+	.blood_sec{
+        padding:0px
+    }
+    .sng_bld_cnt{
+        padding:5px;
+        margin-bottom: 15px;
+        height: auto;
+    }
+    .bld_cnt h2 {
+        font-size: 16px;
+    }
+    .bld_cnt p {
+        font-size: 15px;
+    }
+    .bld_more_link {
+        width: 100%;
+        position: relative;
+    }
+    .src_filter li {
+        padding: 5px;
+    }
+    .src_filter {
+        position: relative;
+    }
+    /**End Blood Page**/
+	
+	.add_section_top img{
+        width: 100%;
+        height: 110px;
+        padding: 0px;
+        margin: 0 auto;
+    }
+	
+	/**Author**/
+	#header-cover-image {
+      height: 180px;
+    }
+    #header-avatar-container a {
+      width: 100px;
+      height: 100px;
+    }
+    #header-avatar-container {
+      bottom: -40%;
+      left: 2px;
+    }
+    #header-name-container h2 {
+      padding: 15px 5px;
+      margin: 0;
+      font-size: 20px;
+      margin-left: 15%;
+    }
+    
+    #header-name-container a{
+        padding: 5px 10px;
+        font-size: 15px;
+        margin-top: 0px;
+        margin-left:5px;
+    }
+    #profile-navigation {
+      margin-top: 16%;
+    }
+    .account_idex{
+        padding: 0 !important;
+        margin: 25px 0;
+    }
+    .post_author_page{
+        padding: 0 !important;
+    }
+    .account_idex a{
+        font-size: 22px;
+    }
+    .ssmdc_cnt h2{
+        font-size: 19px !important;
+    }
+    .problem_with_log_in{
+        padding: 0;
+    }
+    .quicktags-toolbar {
+        width: 100%;
+        padding: 5px 3px;
+        display: inline-block;
+    }
+    #qt_ap_form_content_editor_toolbar input{
+        float: left;
+        width: auto;
+    }
+    .ap-form-wrapper {
+        padding: 5px;
+    }
+
+	
+}
+
+	
+	
+@media only screen and (min-width: 480px) and (max-width: 800px) {
+    .mob_img{
+        width: 106%;
+        margin-left: -10px;
+    }
+    
+    
+}
+	
+@media only screen and (min-width: 680px) and (max-width: 900px) {
+    .csm_btm_art{
+        width:33.33%;
+        float:left;
+    }
+    .csm_btm{background:#eff0efc9;height:250px}
+	.ctop_img img{
+	    max-height: 300px;
+	}
+	.cbtm_img img{
+	    max-height: 150px;
+	}
+    
+    
+}
+
+@media only screen and (min-width: 320px) and (max-width: 679px) {
+    .csm_btm_art{
+        width:50%;
+        float:left;
+        min-height: 190px;
+    }
+    .add_section_top img{
+        width: 100%;
+        height: auto;
+        padding: 0px;
+        margin: 0 auto;
+    }
+    
+	.csm_btm{min-height:205px;background:#eff0efc9;}
+	
+	.ssmdc_img img {height: auto;}
+    
+    
+}
+
+@media only screen and (min-width: 280px) and (max-width: 360px) {
+	.csm_btm{min-height:165px;}
+	.ssmdc_img img {height: auto;}
+    .add_section_top img{
+        width: 100%;
+        height: 110px;
+        padding: 0px;
+        margin: 0 auto;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+    
+    
+    
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

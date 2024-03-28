@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container_full" style="display:inline-block;margin-top:80px">
+                <form class="form" method="POST" action="">
+                    {% csrf_token %}
+                    <div class="form__group">
+                        <p>Are you sure you want to delete "{{obj}}"?</p>
+                    </div>
+
+                    <div class="for__group">
+                        <input class="btn btn--main" type="submit" value="Confirm" />
+                    </div>
+
+                </form>
+            </div>
+
+{% endblock content %}

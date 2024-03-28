@@ -1,0 +1,1020 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+	<!--Section-->
+	<div class="container_full news_bg container_ddd_bg" style="padding-top: 85px">
+		<div class="container">
+
+			<div id="Section" class="col-lg-12 col-md-12 col-xs-12 no_pad">
+
+				<!--Content Part-->
+
+				<!--Left side-->
+				<div class="left_side no_pad">
+							<div class="user_section">
+								<h2>Active User</h2>
+
+								<div class="single_user">
+									<div class="single_user_info">
+										<a href="#">
+											<div class="single_user_info_img">
+												<div class="user_image">
+													<img src="{% static 'images/author.png' %}" alt="" />
+												</div>
+											</div>
+											<div class="single_user_info_name">
+												<div class="user_name us_name">
+													<p>Test User 1</p>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="single_user_follow">
+										<div class="follow_button">
+											<a href="#">Follow</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="single_user">
+									<div class="single_user_info">
+										<a href="#">
+											<div class="single_user_info_img">
+												<div class="user_image">
+													<img src="{% static 'images/author.png' %}" alt="" />
+												</div>
+											</div>
+											<div class="single_user_info_name">
+												<div class="user_name us_name">
+													<p>Test User 1</p>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="single_user_follow">
+										<div class="follow_button">
+											<a href="#">Follow</a>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+				<!--Middle side (Main Content)-->
+				<div class="middle_side left_section no_pad">
+					<div class="main_content">
+						<div class="mugdhota_slt_post dis_scroll">
+							<div class="mugdhota_slt_post_std">
+
+								<a href="{% url 'create-post'  %}">
+									<div class="post_upload_section" style="margin:0">
+										<div style="width: 10%; float:left">
+											<div class="pus_user_image">
+												<img src="{{request.user.avatar.url}}" alt="" />
+											</div>
+										</div>
+										<div style="width: 90%; float:left">
+											<div class="pus_user_text pro_page_pu">
+												<button onclick="openpuf()">What's on your mind, {{user.username}}?</button>
+											</div>
+										</div>
+									</div>
+								</a>
+
+								<!--selected Post-->
+								<div class="single_post">
+									<!--Author-->
+									<div class="author_info">
+										<div class="col-lg-8 col-md-8 no_pad">
+											<div class="col-lg-2 col-md-3 no_pad">
+												<div class="user_image pro_page_ui">
+													<img src="{% static 'images/author.png' %}" alt="" />
+												</div>
+											</div>
+											<div class="col-lg-10 col-md-9 no_pad">
+												<div class="user_name" style="padding:0;margin-left: 0">
+													<p style="margin:0">Test User 1</p>
+													<p style="font-size:12px;margin:0">10 min ago</p>
+												</div>
+											</div>
+										</div>
+
+										<!--Post Create Date and Time-->
+										<div class="col-lg-4 col-md-4 no_pad">
+											<div class="post_create_date">
+												<span class="onen_fnc"><i class="fa fa-ellipsis-v epobtn" aria-hidden="true"></i></span>
+												<div class="edit_post_opt" id="edit_po">
+													<div class="epo">
+														<a><i class="fa fa-share-alt" aria-hidden="true"></i>Share </a>
+														<a>
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z"/></svg>Edit </a>
+														<a><i class="fa fa-trash"></i>Delete</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="content_part">
+
+										<div class="single_post">
+
+											<div class="content_text">
+												<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! শুধু ক্রিকেট নয়, সব ধরনের খেলা মিলেই হয়তো এই প্রথম কোনো ম্যাচের ভারতের জয় কামনা করেছে পুরো উপমহাদেশ..</p>
+											</div>
+
+											<div class="content_img">
+												<img src="{% static 'images/sample.jpg' %}" alt="" />
+											</div>
+
+											<div class="meta_data">
+												<div class="col-lg-4 col-md-4 no_pad">
+													{% if post.no_of_likes == 0 %}
+													<p>No Liked</p>
+													{% elif post.no_of_likes == 1 %}
+													<p>Liked by 1 person</p>
+													{% else %}
+													<p>Liked by {{post.no_of_likes}} people</p>
+													{% endif %}
+												</div>
+												<div class="col-lg-4 col-md-4 no_pad" style="text-align:center">
+													<p>10 Comments</p>
+												</div>
+												<div class="col-lg-4 col-md-4 no_pad" style="text-align:right">
+													<p>105 Views</p>
+												</div>
+											</div>
+
+											<!--Like and Comment Button-->
+											<div class="like_cnt_section">
+												<div class="col-lg-6 col-md-6 col-xs-6 no_pad">
+													<div class="cnt_button like_button">
+														<a href="/like-post?post_id={{post.id}}">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M96 191.1H32c-17.67 0-32 14.33-32 31.1v223.1c0 17.67 14.33 31.1 32 31.1h64c17.67 0 32-14.33 32-31.1V223.1C128 206.3 113.7 191.1 96 191.1zM512 227c0-36.89-30.05-66.92-66.97-66.92h-99.86C354.7 135.1 360 113.5 360 100.8c0-33.8-26.2-68.78-70.06-68.78c-46.61 0-59.36 32.44-69.61 58.5c-31.66 80.5-60.33 66.39-60.33 93.47c0 12.84 10.36 23.99 24.02 23.99c5.256 0 10.55-1.721 14.97-5.26c76.76-61.37 57.97-122.7 90.95-122.7c16.08 0 22.06 12.75 22.06 20.79c0 7.404-7.594 39.55-25.55 71.59c-2.046 3.646-3.066 7.686-3.066 11.72c0 13.92 11.43 23.1 24 23.1h137.6C455.5 208.1 464 216.6 464 227c0 9.809-7.766 18.03-17.67 18.71c-12.66 .8593-22.36 11.4-22.36 23.94c0 15.47 11.39 15.95 11.39 28.91c0 25.37-35.03 12.34-35.03 42.15c0 11.22 6.392 13.03 6.392 22.25c0 22.66-29.77 13.76-29.77 40.64c0 4.515 1.11 5.961 1.11 9.456c0 10.45-8.516 18.95-18.97 18.95h-52.53c-25.62 0-51.02-8.466-71.5-23.81l-36.66-27.51c-4.315-3.245-9.37-4.811-14.38-4.811c-13.85 0-24.03 11.38-24.03 24.04c0 7.287 3.312 14.42 9.596 19.13l36.67 27.52C235 468.1 270.6 480 306.6 480h52.53c35.33 0 64.36-27.49 66.8-62.2c17.77-12.23 28.83-32.51 28.83-54.83c0-3.046-.2187-6.107-.6406-9.122c17.84-12.15 29.28-32.58 29.28-55.28c0-5.311-.6406-10.54-1.875-15.64C499.9 270.1 512 250.2 512 227z"/></svg>
+														Like</a>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6 col-xs-6 onen_fnc no_pad">
+													<div class="cnt_button">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M447.1 0h-384c-35.25 0-64 28.75-64 63.1v287.1c0 35.25 28.75 63.1 64 63.1h96v83.98c0 9.836 11.02 15.55 19.12 9.7l124.9-93.68h144c35.25 0 64-28.75 64-63.1V63.1C511.1 28.75 483.2 0 447.1 0zM464 352c0 8.75-7.25 16-16 16h-160l-80 60v-60H64c-8.75 0-16-7.25-16-16V64c0-8.75 7.25-16 16-16h384c8.75 0 16 7.25 16 16V352z"/></svg>
+														<span>Comment</span>
+													</div>
+
+												</div>
+
+												<!--Comment Section-->
+												<div class="comment_section"  id="user_cmnt_section">
+
+													<div class="create_comment">
+
+														<div class="current_user_img">
+															<img src="{% static 'images/author.png' %}" alt="" />
+														</div>
+														<div class="cnt_text" style="padding-left:10px;">
+															<input type="text" />
+														</div>
+														<div class="cnt_text_submit">
+															<input type="submit" value="Post" />
+														</div>
+													</div>
+
+													<div class="post_comment">
+														<div class="commentator">
+															<div class="current_user_img cntor_img">
+																<img src="{% static 'images/author.png' %}" alt="" />
+															</div>
+														</div>
+														<div class="comment" style="padding-left:10px;">
+															<div class="cnt_text">
+																<p>This is sample comment</p>
+															</div>
+															<div class="cnt_meta">
+																<a href="">Like</a>
+																<a href="">reply</a>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<!--Comment Section-->
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!--Right Section-->
+				<div class="right_side">
+					<!--Right side (User section)-->
+					<div class="right_section no_pad">
+						<div class="user_section">
+							<h2>Active User</h2>
+
+							<div class="single_user">
+								<div class="single_user_info">
+									<a href="#">
+										<div class="single_user_info_img">
+											<div class="user_image">
+												<img src="{% static 'images/author.png' %}" alt="" />
+											</div>
+										</div>
+										<div class="single_user_info_name">
+											<div class="user_name us_name">
+												<p>Test User 1</p>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="single_user_follow">
+									<div class="follow_button">
+										<a href="#">Follow</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="single_user">
+								<div class="single_user_info">
+									<a href="#">
+										<div class="single_user_info_img">
+											<div class="user_image">
+												<img src="{% static 'images/author.png' %}" alt="" />
+											</div>
+										</div>
+										<div class="single_user_info_name">
+											<div class="user_name us_name">
+												<p>Test User 1</p>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="single_user_follow">
+									<div class="follow_button">
+										<a href="#">Follow</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!--End Content Part-->
+
+
+			</div>
+		</div>
+	</div>
+	<!--End Main Heading-->
+
+	<!--Section of Story-->
+	<div class="container_full" style="background: #fff">
+		<div class="container">
+			<div id="Section2" class="selective_section">
+
+				<div class="sec_title ss_post_title">
+					<h2 style="border-bottom: 2px solid #ddd; padding-bottom: 15px; margin: 0;"><a href="#">শিল্প ও সাহিত্য</a></h2>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-xs-12">
+					<div class="section2_left">
+
+						<div class="ssrcontent nthc1"><a href="#">
+							<div class="ssrc_left">
+								<div class="ssrc_img">
+									<img src="{% static 'images/cover.jpg' %}" alt="" />
+								</div>
+							</div>
+							<div class="ssrc_right">
+								<div class="ccm_cnt" style="width:100%;padding-left:5px">
+									<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! </p>
+								</div>
+							</div></a>
+						</div>
+
+						<div class="ssrcontent nthc1"><a href="#">
+							<div class="ssrc_left">
+								<div class="ssrc_img">
+									<img src="{% static 'images/cover.jpg' %}" alt="" />
+								</div>
+							</div>
+							<div class="ssrc_right">
+								<div class="ccm_cnt" style="width:100%;padding-left:5px">
+									<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! </p>
+								</div>
+							</div></a>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-xs-12">
+					<div class="section2_middle">
+						<div class="single_post ss_single_post sec2_mid_cnt">
+
+							<div class="content_part">
+
+								<div class="single_post">
+
+									<div class="content_img">
+										<img src="{% static 'images/sample.jpg' %}" alt="" />
+									</div>
+
+									<div class="content_text">
+										<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! শুধু ক্রিকেট নয়, সব ধরনের খেলা মিলেই হয়তো এই প্রথম কোনো ম্যাচের ভারতের জয় কামনা করেছে পুরো উপমহাদেশ..</p>
+									</div>
+
+									<div class="meta_data">
+										<div class="col-lg-4 col-md-4 no_pad">
+											<p>50 Likes</p>
+										</div>
+										<div class="col-lg-4 col-md-4 no_pad" style="text-align:center">
+											<p>10 Comments</p>
+										</div>
+										<div class="col-lg-4 col-md-4 no_pad" style="text-align:right">
+											<p>105 Views</p>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-xs-12">
+					<div class="section2_right">
+
+						<div class="ssrcontent nthc1"><a href="#">
+							<div class="ssrc_left">
+								<div class="ssrc_img">
+									<img src="{% static 'images/cover.jpg' %}" alt="" />
+								</div>
+							</div>
+							<div class="ssrc_right">
+								<div class="ccm_cnt" style="width:100%;padding-left:5px">
+									<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! </p>
+								</div>
+							</div></a>
+						</div>
+
+						<div class="ssrcontent nthc1"><a href="#">
+							<div class="ssrc_left">
+								<div class="ssrc_img">
+									<img src="{% static 'images/cover.jpg' %}" alt="" />
+								</div>
+							</div>
+							<div class="ssrc_right">
+								<div class="ccm_cnt" style="width:100%;padding-left:5px">
+									<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! </p>
+								</div>
+							</div></a>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--End Section of Story-->
+
+
+	<!--Section of All-->
+	<div class="container_full desk">
+		<div class="container">
+			<div class="selective_section shilpo_shahitto">
+
+				<div class="sec_title ss_post_title">
+					<h2><a href="#">শিল্প ও সাহিত্য</a></h2>
+				</div>
+
+				<div class="ss_left">
+					<div class="lao ssl_left">
+
+						<div class="ssl_lefts">
+							<div class="overview_nav">
+								<ul class="nav nav-tabs">
+									<li class="active"><a data-toggle="tab" href="#pse">শেষ</a></li>
+									<li><a data-toggle="tab" href="#ls">আলোচিত</a></li>
+									<li><a data-toggle="tab" href="#hs">নির্বাচিত</a></li>
+								 </ul>
+
+							</div>
+						</div>
+
+						<div class="lao_ar col-lg-12 col_f col-xs-12">
+							<div class="ovew_dis tab-content">
+
+								<!--Life Science-->
+								<div id="pse" class="ovrview_h tab-pane fade in active">
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>ট্রাকের আসনেই নিভে গেল তিন প্রাণ</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+								</div>
+
+
+								<!--Life Science-->
+								<div id="hs" class="ovrview_h tab-pane fade in">
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>ট্রাকের আসনেই নিভে গেল তিন প্রাণ</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>ট্রাকের আসনেই নিভে গেল তিন প্রাণ</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>ট্রাকের আসনেই নিভে গেল তিন প্রাণ</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>ট্রাকের আসনেই নিভে গেল তিন প্রাণ</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>ট্রাকের আসনেই নিভে গেল তিন প্রাণ</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>ট্রাকের আসনেই নিভে গেল তিন প্রাণ</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>ট্রাকের আসনেই নিভে গেল তিন প্রাণ</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>ট্রাকের আসনেই নিভে গেল তিন প্রাণ</h2>
+										</div>
+									</div>
+								</div>
+
+
+								<!--Life Science-->
+								<div id="ls" class="ovrview_h tab-pane fade in">
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+									<div class="col-lg-12 col_md_on col-xs-12">
+										<div class="op_news">
+											<h2>১৭৬ কোটি মানুষকে হতাশ করে হারল ভারত</h2>
+										</div>
+									</div>
+								</div>
+
+
+
+							</div>
+						</div>
+
+					</div>
+
+					<div class="ssl_right " style="padding: 0 20px;">
+
+						<div class="sslr_section_top">
+							<div class="single_post ss_single_post">
+
+								<div class="content_part">
+
+									<div class="single_post"><a href="#">
+
+										<div class="content_img">
+											<img src="{% static 'images/sample.jpg' %}" alt="" />
+										</div>
+
+										<div class="content_text">
+										<h2>সব ধরনের খেলা মিলেই হয়তো </h2>
+											<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! শুধু ক্রিকেট নয়, সব ধরনের খেলা মিলেই হয়তো এই প্রথম কোনো ম্যাচের ভারতের জয় কামনা করেছে পুরো উপমহাদেশ..</p>
+										</div>
+
+										<div class="meta_data">
+											<div class="col-lg-4 col-md-4 no_pad">
+												<p>50 Likes</p>
+											</div>
+											<div class="col-lg-4 col-md-4 no_pad" style="text-align:center">
+												<p>10 Comments</p>
+											</div>
+											<div class="col-lg-4 col-md-4 no_pad" style="text-align:right">
+												<p>105 Views</p>
+											</div>
+										</div></a>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sslr_section_bottom">
+
+							<div class="col-lg-6 col-md-6 col-xs-12 no_pad nthc1">
+
+								<div class="sslr_sb_single">
+									<div class="content_img single_sslr_img">
+										<img src="{% static 'images/sample.jpg' %}" alt="" />
+									</div>
+
+									<div class="content_text">
+										<h2>মাঠে খেলছিলেন বিরাট কোহলি</h2>
+									</div>
+
+									<div class="meta_data ssp_meta">
+										<div class="col-lg-6 col-md-6 no_pad">
+											<p>50 Likes</p>
+										</div>
+										<div class="col-lg-6 col-md-6 no_pad" style="text-align:right">
+											<p>105 Views</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-xs-12 no_pad nthc1">
+
+								<div class="sslr_sb_single">
+									<div class="content_img single_sslr_img">
+										<img src="{% static 'images/sample.jpg' %}" alt="" />
+									</div>
+
+									<div class="content_text">
+										<h2>মাঠে খেলছিলেন বিরাট কোহলি</h2>
+									</div>
+
+									<div class="meta_data ssp_meta">
+										<div class="col-lg-6 col-md-6 no_pad">
+											<p>50 Likes</p>
+										</div>
+										<div class="col-lg-6 col-md-6 no_pad" style="text-align:right">
+											<p>105 Views</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-xs-12 no_pad nthc1">
+
+								<div class="sslr_sb_single">
+									<div class="content_img single_sslr_img">
+										<img src="{% static 'images/sample.jpg' %}" alt="" />
+									</div>
+
+									<div class="content_text">
+										<h2>মাঠে খেলছিলেন বিরাট কোহলি</h2>
+									</div>
+
+									<div class="meta_data ssp_meta">
+										<div class="col-lg-6 col-md-6 no_pad">
+											<p>50 Likes</p>
+										</div>
+										<div class="col-lg-6 col-md-6 no_pad" style="text-align:right">
+											<p>105 Views</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+				<div class="ss_right">
+
+					<div class="ssrcontent nthc3"><a href="#">
+						<div class="ssrc_left">
+							<div class="ssrc_img">
+								<img src="{% static 'images/cover.jpg' %}" alt="" />
+							</div>
+						</div>
+						<div class="ssrc_right">
+							<div class="ccm_cnt" style="padding-left:5px">
+								<h2>মাঠে খেলছিলেন, প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							</div>
+						</div></a>
+					</div>
+
+					<div class="ssrcontent nthc3"><a href="#">
+						<div class="ssrc_left">
+							<div class="ssrc_img">
+								<img src="{% static 'images/cover.jpg' %}" alt="" />
+							</div>
+						</div>
+						<div class="ssrc_right">
+							<div class="ccm_cnt" style="padding-left:5px">
+								<h2>মাঠে খেলছিলেন, প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							</div>
+						</div></a>
+					</div>
+
+					<div class="ssrcontent nthc3"><a href="#">
+						<div class="ssrc_left">
+							<div class="ssrc_img">
+								<img src="{% static 'images/cover.jpg' %}" alt="" />
+							</div>
+						</div>
+						<div class="ssrc_right">
+							<div class="ccm_cnt" style="padding-left:5px">
+								<h2>মাঠে খেলছিলেন, প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							</div>
+						</div></a>
+					</div>
+
+					<div class="ssrcontent nthc3"><a href="#">
+						<div class="ssrc_left">
+							<div class="ssrc_img">
+								<img src="{% static 'images/cover.jpg' %}" alt="" />
+							</div>
+						</div>
+						<div class="ssrc_right">
+							<div class="ccm_cnt" style="padding-left:5px">
+								<h2>মাঠে খেলছিলেন, প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							</div>
+						</div></a>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--End Section of All-->
+
+
+	<!--Section of Novel-->
+	<div class="container_full" style="background: #fff">
+		<div class="container">
+			<div class="selective_section shilpo_shahitto">
+
+				<div class="sec_title ss_post_title brd_b_ddd">
+					<h2><a href="#">স্বাস্থ্য</a></h2>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-xs-6">
+					<div class="title_novel_sec_left">
+
+						<div class="single_post single_tnsl"><a href="#">
+
+							<div class="content_img stnsl_img">
+								<img src="{% static 'images/sample.jpg' %}" alt="" />
+							</div>
+
+							<div class="content_text stnsl_cnt bc_ddd">
+								<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! শুধু ক্রিকেট নয়, সব ধরনের খেলা মিলেই হয়তো এই প্রথম কোনো ম্যাচের ভারতের জয় কামনা করেছে পুরো উপমহাদেশ..</p>
+							</div>
+
+							<div class="meta_data bc_ddd brd_t_fff">
+								<div class="col-lg-4 col-md-4 no_pad">
+									<p>50 Likes</p>
+								</div>
+								<div class="col-lg-4 col-md-4 no_pad" style="text-align:center">
+									<p>10 Comments</p>
+								</div>
+								<div class="col-lg-4 col-md-4 no_pad" style="text-align:right">
+									<p>105 Views</p>
+								</div>
+							</div></a>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-xs-6">
+					<div class="other_novel_sec_right">
+
+						<div class="ssrcontent onsr_sng_post nthc1"><a href="#">
+							<div class="onsrsp_left">
+								<div class="ssrc_img onsrsp_img">
+									<img src="{% static 'images/cover.jpg' %}" alt="" />
+								</div>
+							</div>
+							<div class="onsrsp_right">
+								<div class="ccm_cnt" style="padding-left:5px">
+									<h2>মাঠে খেলছিলেন বিরাট প্রার্থনায় পুরো উপমহাদেশ! </h2>
+									<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! </p>
+								</div>
+							</div></a>
+						</div>
+
+						<div class="ssrcontent onsr_sng_post nthc1"><a href="#">
+							<div class="onsrsp_left">
+								<div class="ssrc_img onsrsp_img">
+									<img src="{% static 'images/cover.jpg' %}" alt="" />
+								</div>
+							</div>
+							<div class="onsrsp_right">
+								<div class="ccm_cnt" style="padding-left:5px">
+									<h2>মাঠে খেলছিলেন বিরাট প্রার্থনায় পুরো উপমহাদেশ! </h2>
+									<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! </p>
+								</div>
+							</div></a>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--End Section of Novel-->
+
+	<!--Section of News-->
+	<div class="container_full" style="background: #eee; padding-bottom: 20px;">
+		<div class="container">
+			<div class="selective_section shilpo_shahitto">
+
+				<div class="sec_title ss_post_title brd_b_ddd">
+					<h2><a href="#">স্বাস্থ্য</a></h2>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-xs-12 nthc_lr_pad_no">
+					<div class="single_snews">
+						<div class="single_snews_img">
+							<img src="{% static 'images/cover.jpg' %}" alt="" />
+						</div>
+						<div class="single_snews_cnt bc_fff">
+							<h2>মাঠে খেলছিলেন বিরাট প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! </p>
+						</div>
+						<div class="meta_data bc_fff">
+							<div class="col-lg-4 col-md-4 no_pad">
+								<p>50 Likes</p>
+							</div>
+							<div class="col-lg-4 col-md-4 no_pad" style="text-align:center">
+								<p>10 Comments</p>
+							</div>
+							<div class="col-lg-4 col-md-4 no_pad" style="text-align:right">
+								<p>105 Views</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-xs-12 nthc_lr_pad_no">
+					<div class="single_snews">
+						<div class="single_snews_img">
+							<img src="{% static 'images/cover.jpg' %}" alt="" />
+						</div>
+						<div class="single_snews_cnt bc_fff">
+							<h2>মাঠে খেলছিলেন বিরাট প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! </p>
+						</div>
+						<div class="meta_data bc_fff">
+							<div class="col-lg-4 col-md-4 no_pad">
+								<p>50 Likes</p>
+							</div>
+							<div class="col-lg-4 col-md-4 no_pad" style="text-align:center">
+								<p>10 Comments</p>
+							</div>
+							<div class="col-lg-4 col-md-4 no_pad" style="text-align:right">
+								<p>105 Views</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-xs-12 nthc_lr_pad_no">
+					<div class="single_snews">
+						<div class="single_snews_img">
+							<img src="{% static 'images/cover.jpg' %}" alt="" />
+						</div>
+						<div class="single_snews_cnt bc_fff">
+							<h2>মাঠে খেলছিলেন বিরাট প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! </p>
+						</div>
+						<div class="meta_data bc_fff">
+							<div class="col-lg-4 col-md-4 no_pad">
+								<p>50 Likes</p>
+							</div>
+							<div class="col-lg-4 col-md-4 no_pad" style="text-align:center">
+								<p>10 Comments</p>
+							</div>
+							<div class="col-lg-4 col-md-4 no_pad" style="text-align:right">
+								<p>105 Views</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-xs-12 nthc_lr_pad_no">
+					<div class="single_snews">
+						<div class="single_snews_img">
+							<img src="{% static 'images/cover.jpg' %}" alt="" />
+						</div>
+						<div class="single_snews_cnt bc_fff">
+							<h2>মাঠে খেলছিলেন বিরাট প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							<p>মাঠে খেলছিলেন বিরাট কোহলি-রোহিত শর্মারা, প্রার্থনায় পুরো উপমহাদেশ! </p>
+						</div>
+						<div class="meta_data bc_fff">
+							<div class="col-lg-4 col-md-4 no_pad">
+								<p>50 Likes</p>
+							</div>
+							<div class="col-lg-4 col-md-4 no_pad" style="text-align:center">
+								<p>10 Comments</p>
+							</div>
+							<div class="col-lg-4 col-md-4 no_pad" style="text-align:right">
+								<p>105 Views</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--End Section-->
+
+	<!--Section of other-->
+	<div class="container_full" style="background: #fff">
+		<div class="container">
+			<div class="selective_section shilpo_shahitto">
+
+				<div class="sec_title ss_post_title brd_b_ddd">
+					<h2><a href="#">স্বাস্থ্য</a></h2>
+				</div>
+
+				<div class="other_post_type_sec">
+
+					<div class="oth_post_ts col-lg-3 col-lg-3 col-xs-12 nthc_lr_pad_no">
+
+						<div class="single_other_pts_top">
+							<div class="single_snews_img">
+								<img src="{% static 'images/cover.jpg' %}" alt="" />
+							</div>
+							<div class="single_snews_cnt">
+								<h2>মাঠে খেলছিলেন বিরাট প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							</div>
+						</div>
+
+						<div class="single_other_pts_bottom">
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+						</div>
+
+					</div>
+
+					<div class="oth_post_ts col-lg-3 col-lg-3 col-xs-12 nthc_lr_pad_no">
+
+						<div class="single_other_pts_top">
+							<div class="single_snews_img">
+								<img src="{% static 'images/cover.jpg' %}" alt="" />
+							</div>
+							<div class="single_snews_cnt">
+								<h2>মাঠে খেলছিলেন বিরাট প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							</div>
+						</div>
+
+						<div class="single_other_pts_bottom">
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+						</div>
+
+					</div>
+
+					<div class="oth_post_ts col-lg-3 col-lg-3 col-xs-12 nthc_lr_pad_no">
+
+						<div class="single_other_pts_top">
+							<div class="single_snews_img">
+								<img src="{% static 'images/cover.jpg' %}" alt="" />
+							</div>
+							<div class="single_snews_cnt">
+								<h2>মাঠে খেলছিলেন বিরাট প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							</div>
+						</div>
+
+						<div class="single_other_pts_bottom">
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+						</div>
+
+					</div>
+
+					<div class="oth_post_ts col-lg-3 col-lg-3 col-xs-12 nthc_lr_pad_no">
+
+						<div class="single_other_pts_top">
+							<div class="single_snews_img">
+								<img src="{% static 'images/cover.jpg' %}" alt="" />
+							</div>
+							<div class="single_snews_cnt">
+								<h2>মাঠে খেলছিলেন বিরাট প্রার্থনায় পুরো উপমহাদেশ! </h2>
+							</div>
+						</div>
+
+						<div class="single_other_pts_bottom">
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+							<h2>Title 1</h2>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--End Section-->
+
+
+{% endblock %}
+		

@@ -1,0 +1,360 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+	<!--Profile header Section-->
+	<div class="container_full" style="background-color:#fff">
+		<div class="container profile_bg">
+			<div id="Section" class="col-lg-12 col-md-12 col-xs-12"> 	
+				
+				<div class="cover_img" style="width: 100%;"> 
+					<img src="{{user.coverphoto.url}}" alt="" />
+				</div>
+				
+				<div class="user_info"> 
+					<div class="user_profile_pic"> 
+						<img src="{{user.avatar.url}}" alt="" />
+					</div>
+					<div class="user_profile_info"> 
+						<div class="pro_page_user_name"> 
+							<h2>{{user.name}}</h2>
+							<p>152 Follwers</p>
+						</div>
+						<div class="user_post_info"> 
+							<h2>15 posts</h2>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+	<!--End Profile header Section-->
+
+	<!--Content-->
+	<div class="container_full container_ddd_bg" style="padding-top: 30px">
+		<div class="container profile_bg">
+				
+			<div id="Section" class="col-lg-12 col-md-12 col-xs-12 no_pad"> 
+			
+				<!--Content Part-->
+				
+				<!--Left side (Profile page)-->
+				<div id="profile_page_left">
+					<div class="pro_bio_sections"> 
+						<h2>Intro</h2>
+						<div class="profile_bio">
+
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<label for="about">Name</label>
+								<p>{{user.name}}</p>
+							</div>
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<label for="about">Bio</label>
+								<p>{{user.bio}}</p>
+							</div>
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<p>{{user.location}}</p>
+							</div>
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<p>{{user.location}}</p>
+							</div>
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<p>Worked at Student</p>
+							</div>
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<p>Single</p>
+							</div>
+
+						</div>
+						
+						<div class="edit_bio_button"> 
+							<button onclick="Editbio()">Edit bio</button>
+						</div>
+						
+					</div>
+					
+					<!--Bio Edit-->
+					<div class="edit_bio" id="edit_bio">
+						<div class="edit_bio_form">
+							<form action="">
+								<div class="col-lg-12 col-md-12 col-xs-12">
+									<label for="about">First Name</label>
+									<input type="text" name="first_name" placeholder="First Name" value="" class="shadow-none bg-gray-100"></input>
+								</div>
+
+								<div class="col-lg-12 col-md-12 col-xs-12">
+									<label for="about">Last Name</label>
+									<input type="text" name="last_name" placeholder="Last Name" value="" class="shadow-none bg-gray-100"></input>
+								</div>
+
+								<div class="col-lg-12 col-md-12 col-xs-12">
+									<label for=""> Profile Image</label>
+									<img width="100" height="100" src="{{user_profile.profileimg.url}}" />
+									<input type="file" name="image" value="" style="box-shadow:none;border:none">
+								</div>
+								<div class="col-lg-12 col-md-12 col-xs-12">
+									<label for="about">Bio</label>
+									<textarea id="about" name="bio" rows="3" placeholder="Add Bio" style="padding:5px" class="shadow-none bg-gray-100">{{user_profile.bio}}</textarea>
+								</div>
+								<div class="col-lg-12 col-md-12 col-xs-12">
+									<label for=""> Location</label>
+									<input type="text" name="location" placeholder="Location" value="" class="shadow-none bg-gray-100">
+								</div>
+
+								<div class="col-lg-12 col-md-12 col-xs-12">
+									<label for="about">Worked at</label>
+									<input type="text" name="worked_at" placeholder="Worked at" value="" class="shadow-none bg-gray-100">
+								</div>
+								<div class="col-lg-12 col-md-12 col-xs-12">
+									<label for="">Relationships</label>
+									<select id="relationship" name="relationship" value="" class="shadow-none bg-gray-100">
+										<option value="0">None</option>
+										<option value="1">Single</option>
+										<option value="2">In a relationship</option>
+										<option value="3">Complicated</option>
+									</select>
+								</div>
+
+								   <div class="edit_cancel_save">
+									   <button class="p-2 px-4 rounded bg-gray-50 text-red-500">Cancel </button>
+									   <button type="submit" class="button bg-blue-700"> Save </button>
+								   </div>
+							</form>
+						</div>
+					</div>
+				</div>
+					
+					
+				<!--Middle side (Profile page)-->
+				<div id="profile_page_middle">
+					<div class="profile_user_cnt"> 
+						<div class="user_post">
+
+        				<a href="{% url 'create-post'  %}">
+							<div class="post_upload_section" style="margin:0">
+								<div style="width: 10%; float:left">
+									<div class="pus_user_image">
+										<img src="{{user.avatar.url}}" alt="" />
+									</div>
+								</div>
+								<div style="width: 90%; float:left">
+									<div class="pus_user_text pro_page_pu">
+										<button onclick="openpuf()">What's on your mind, {{user.username}}?</button>
+									</div>
+								</div>
+							</div>
+						</a>
+
+							{% for post in userpost %}
+							<div class="single_post"> 
+								<!--Author-->
+								<div class="author_info">
+									<div class="col-lg-8 col-md-8 no_pad">
+										<div class="col-lg-2 col-md-3 no_pad">
+											<div class="user_image pro_page_ui"> 
+												<img src="{{post.author.avatar.url}}" alt="" />
+											</div>
+										</div>
+										<div class="col-lg-10 col-md-9 no_pad">
+											<div class="user_name" style="padding:0;margin-left: -5px"> 
+												<a href="{% url 'user-profile' post.author.id %}" style="margin:0">{{post.author.name}}</a>
+												<p style="font-size:12px;margin:0">{{post.created|timesince}} ago</p>
+											</div>
+										</div>
+									</div>
+									
+									<!--Post Create Date and Time-->
+									<div class="col-lg-4 col-md-4 no_pad">
+										<div class="post_create_date"> 
+											<span class="onen_fnc"><i class="fa fa-ellipsis-v epobtn" aria-hidden="true"></i></span>
+											<div class="edit_post_opt" id="edit_po"> 
+												<div class="epo"> 
+													<a><i class="fa fa-share-alt" aria-hidden="true"></i>Share </a>
+													<a>
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z"/></svg>Edit </a>
+													<a><i class="fa fa-trash"></i>Delete</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="content_part"> 
+									
+									<div class="single_post"> 
+										
+										<div class="content_text"> 
+											<p>{{post.content}}</p>
+										</div>
+										
+										<div class="content_img">
+											{% if post.image %}
+												<img src="{{post.image.url}}" alt="" />
+											{% endif %}
+										</div>
+										
+										<div class="meta_data"> 
+											<div class="col-lg-4 col-md-4 no_pad">
+												{% if post.no_of_likes == 0 %}
+												<p>No Liked</p>
+												{% elif post.no_of_likes == 1 %}
+												<p>Liked by 1 person</p>
+												{% else %}
+												<p>Liked by {{post.no_of_likes}} people</p>
+												{% endif %}
+											</div>
+											<div class="col-lg-4 col-md-4 no_pad" style="text-align:center">
+												<p>10 Comments</p>
+											</div>
+											<div class="col-lg-4 col-md-4 no_pad" style="text-align:right">
+												<p>105 Views</p>
+											</div>
+										</div>
+										
+										<!--Like and Comment Button-->
+										<div class="like_cnt_section"> 
+											<div class="col-lg-6 col-md-6 col-xs-6 no_pad">
+												<div class="cnt_button like_button"> 
+													<a href="/like-post?post_id={{post.id}}" class="flex items-center space-x-2">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
+															<path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+														</svg>
+													</a>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6 col-xs-6 onen_fnc no_pad">
+												<div class="cnt_button"> 
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M447.1 0h-384c-35.25 0-64 28.75-64 63.1v287.1c0 35.25 28.75 63.1 64 63.1h96v83.98c0 9.836 11.02 15.55 19.12 9.7l124.9-93.68h144c35.25 0 64-28.75 64-63.1V63.1C511.1 28.75 483.2 0 447.1 0zM464 352c0 8.75-7.25 16-16 16h-160l-80 60v-60H64c-8.75 0-16-7.25-16-16V64c0-8.75 7.25-16 16-16h384c8.75 0 16 7.25 16 16V352z"/></svg>
+													<span>Comment</span>
+												</div>
+												
+											</div>
+											
+											<!--Comment Section-->
+											<div class="comment_section"  id="user_cmnt_section"> 
+												
+												<div class="create_comment">
+												
+													<div class="current_user_img">
+														<img src="images/author.png" alt="" />
+													</div>
+													<div class="cnt_text" style="padding-left:10px;"> 
+														<input type="text" />
+													</div>
+													<div class="cnt_text_submit"> 
+														<input type="submit" value="Post" />
+													</div>
+												</div>
+												
+												<div class="post_comment">
+													<div class="commentator"> 
+														<div class="current_user_img cntor_img">
+															<img src="images/author.png" alt="" />
+														</div>
+													</div>
+													<div class="comment" style="padding-left:10px;"> 
+														<div class="cnt_text">
+															<p>This is sample comment</p>
+														</div>
+														<div class="cnt_meta">
+															<a href="">Like</a>
+															<a href="">reply</a>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<!--Comment Section-->
+												
+										</div>
+										
+									</div>
+									
+								</div>
+								
+							</div>
+
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				
+				<!--Right side (Profile page)-->
+				<div id="profile_page_right">
+					<div class="friends"> 
+						<div class="user_section fnd_section">
+							<h2>Active User</h2>
+							
+							<div class="single_user">
+								<div class="single_user_info">
+									<a href="#">
+										<div class="single_user_info_img">
+											<div class="user_image"> 
+												<img src="images/author.png" alt="" />
+											</div>
+										</div>
+										<div class="single_user_info_name">
+											<div class="user_name us_name"> 
+												<p>Test User 1</p>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="single_user_follow"> 
+									<div class="follow_button"> 
+										<a href="#">Follow</a>
+									</div>
+								</div>
+							</div>
+							
+							<div class="single_user">
+								<div class="single_user_info">
+									<a href="#">
+										<div class="single_user_info_img">
+											<div class="user_image"> 
+												<img src="images/author.png" alt="" />
+											</div>
+										</div>
+										<div class="single_user_info_name">
+											<div class="user_name us_name"> 
+												<p>Test User 1</p>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="single_user_follow"> 
+									<div class="follow_button"> 
+										<a href="#">Follow</a>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				
+				
+				<!--End Content Part-->
+				
+				
+			</div>
+		</div>
+	</div>
+	<!--End Main Heading-->
+	
+	<!--Footer Section-->
+	<div class="container_full container_white_bg">
+		<div class="container">
+			<div id="Section" class="col-lg-12 col-md-12 col-xs-12"> 				
+				
+				
+			</div>
+		</div>
+	</div>
+	<!--End Section-->
+
+
+{% endblock content %}

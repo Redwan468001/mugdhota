@@ -1,0 +1,108 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container_full">
+	<div class="container profile_bg">
+          <div class="content_part" style="margin-top:200px">
+
+										<div class="single_post">
+											<a href="{% url 'userpost' userpost.id %}">
+											<div class="content_text">
+												<p>{{userpost.content}}</p>
+											</div>
+
+											<div class="content_img">
+												{% if userpost.image %}
+												<img src="{{userpost.image.url}}" alt="" />
+												{% endif %}
+											</div></a>
+
+											<!--Meta-->
+											<div class="meta_data">
+												<div class="col-lg-4 col-md-4 no_pad">
+													{% if userpost.no_of_likes == 0 %}
+													<p>No Liked</p>
+													{% elif userpost.no_of_likes == 1 %}
+													<p>Liked by 1 person</p>
+													{% else %}
+													<p>Liked by {{userpost.no_of_likes}} people</p>
+													{% endif %}
+												</div>
+												<div class="col-lg-4 col-md-4 no_pad" style="text-align:center">
+													<p>10 Comments</p>
+												</div>
+												<div class="col-lg-4 col-md-4 no_pad" style="text-align:right">
+													<p>105 Views</p>
+												</div>
+											</div>
+
+											<!--Like and Comment Button-->
+											<div class="like_cnt_section">
+												<div class="col-lg-6 col-md-6 col-xs-6 no_pad">
+													<div class="cnt_button like_button">
+														<a href="/like-post?post_id={{userpost.id}}" class="flex items-center space-x-2">
+															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
+																<path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+															</svg>
+														</a>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6 col-xs-6 onen_fnc no_pad">
+													<div class="cnt_button">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M447.1 0h-384c-35.25 0-64 28.75-64 63.1v287.1c0 35.25 28.75 63.1 64 63.1h96v83.98c0 9.836 11.02 15.55 19.12 9.7l124.9-93.68h144c35.25 0 64-28.75 64-63.1V63.1C511.1 28.75 483.2 0 447.1 0zM464 352c0 8.75-7.25 16-16 16h-160l-80 60v-60H64c-8.75 0-16-7.25-16-16V64c0-8.75 7.25-16 16-16h384c8.75 0 16 7.25 16 16V352z"/></svg>
+														<span>Comment</span>
+													</div>
+
+												</div>
+
+												<!--Comment Section-->
+												<div class="comment_sectiond"  id="user_cmnt_sectiond">
+
+													<div class="create_commentd">
+
+														<div class="current_user_img">
+															<img src="{{ request.user.avatar.url }}" alt="" />
+														</div>
+
+														<form action="" method="POST" enctype="multipart/form-data">
+															{% csrf_token %}
+															<div class="cnt_text" style="padding-left:10px;">
+																  <input type="text" name="body" placeholder="Write your message here..." />
+															</div>
+															<div class="cnt_text_submit">
+																<input type="submit" value="Sumbit"/>
+															</div>
+														</form>
+													</div>
+
+													{% for comments in post_comments %}
+													<div class="post_comment">
+														<div class="commentator">
+															<div class="current_user_img cntor_img">
+																<img src="{{comments.user.avatar.url}}" alt="" />
+															</div>
+														</div>
+														<div class="comment" style="padding-left:10px;">
+															<div class="cnt_text">
+																<p>{{comments.body}}</p>
+															</div>
+															<div class="cnt_meta">
+																<a href="">Like</a>
+																<a href="">reply</a>
+															</div>
+														</div>
+													</div>
+													{% endfor %}
+												</div>
+
+												<!--Comment Section-->
+
+											</div>
+
+										</div>
+
+									</div>
+
+    </div>
+</div>
+{% endblock content %}

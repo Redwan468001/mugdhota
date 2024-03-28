@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'style.css' %}" />
+	<title>Mugdhota</title>
+</head>
+<body>
+
+
+
+	<!--All Menu-->
+	<div id="mySidepanel" class="sidepanel">
+		<div class="cnt_main_menu">
+			<div class="cmm">
+			<div id="am">
+				<a href="javascript:void(0)" id="csh" class="closebtn" onclick="closeNav()">×</a>
+			</div>
+				<ul>
+					<li><a href="#">প্রচ্ছদ</a></li>
+					<li><a href="#">বাংলাদেশ</a></li>
+					<li><a href="#">খেলা</a></li>
+					<li><a href="#">ধর্ম</a></li>
+					<li><a href="#">বিনোদন</a></li>
+					<li><a href="#">রাজনীতি</a></li>
+					<li><a href="#">প্রচ্ছদ</a></li>
+					<li><a href="#">রংপুর</a></li>
+					<li><a href="#">কুড়িগ্রাম</a></li>
+					<li><a href="#">দিনাজপুর</a></li>
+					<li><a href="#">নিলফামারি</a></li>
+					<li><a href="#">গাইবান্ধা</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--End All Menu-->
+
+
+	<!--header-->
+	<div class="container_full desk_header" id="navbar">
+		<div class="container">
+
+			<div id="header" class="col-lg-12 col-md-12 col-xs-12">
+
+				<div class="head_sec col-lg-3 col-md-3 col-xs-3 no_pad">
+					<div id="web_name">
+						<h2>Mugdhota.com</h2>
+					</div>
+				</div>
+
+				<div class="head_sec col-lg-7 col-md-7 col-xs-0">
+					<form class="search_bar">
+						<input type="text" placeholder="Search.." name="search">
+						<button type="submit" style="padding:5px 15px"><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+
+				<div class="head_sec head_sec_r col-lg-2 col-md-2 col-xs-2 no_pad">
+					<div id="s_a_l">
+
+						<div class="sal">
+							<div id="user_in">
+								<div class="dropdownas">
+
+									<div class="h_user">
+										<a onclick="msFnc()" class="mdropbtn"><img src="{% static 'images/message.png' %}" alt="" /></a>
+										<div id="mDropdown" class="dropdown-content">
+											<div class="mnu_body">
+												<a href="#home">Message</a>
+												<a href="#about">Setting</a>
+												<a href="#contact">Log-out</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="h_user">
+										<a onclick="notFnc()" class="ndropbtn"><img src="{% static 'images/notifications.png' %}" alt="" /></a>
+										<div id="nDropdown" class="dropdown-content">
+											<div class="mnu_body">
+												<a href="#home">Notifications</a>
+												<a href="#about">Setting</a>
+												<a href="#contact">Log-out</a>
+											</div>
+										</div>
+									</div>
+
+
+									<!-- Logged In -->
+									{% if request.user.is_authenticated %}
+									<div class="h_user">
+										<a onclick="proFnc()" class="pdropbtn"><img src="{{request.user.avatar.url}}" alt="" /></a>
+										<div id="pDropdown" class="dropdown-content">
+											<div class="mnu_body">
+												<a href="{% url 'update-user' %}">Profile</a>
+												<a href="#about">Setting</a>
+												<a href="{% url 'logout' %}">Log-out</a>
+											</div>
+										</div>
+									</div>
+									{% else %}
+									<div class="h_user">
+										<a onclick="proFnc()" class="pdropbtn"><img src="{% static 'images/avatar.svg' %}" alt="" /></a>
+										<div id="pDropdown" class="dropdown-content">
+											<div class="mnu_body">
+												<a href="{% url 'login' %}">log-in</a>
+											</div>
+										</div>
+									</div>
+									{% endif %}
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	<!--End header-->
+
+	{% include 'style.html' %}
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!--End Click Dropdown-->
+
+	<!--All Menu-->
+	<script>
+		function openNav() {
+		  document.getElementById("mySidepanel").style.width = "100%";
+		  document.getElementById("main_menu").style.display = "none";
+		  document.getElementById("amo").style.display = "block";
+		  document.getElementById("am").style.display = "none";
+		}
+
+		function closeNav() {
+		  document.getElementById("mySidepanel").style.width = "0";
+		  document.getElementById("main_menu").style.display = "block";
+		  document.getElementById("amo").style.display = "none";
+		  document.getElementById("am").style.display = "block";
+		}
+	</script>
+
+<!--
+	Script
+	-----------
+	-->
+
+	<script type="text/javascript">
+
+		//Search
+		function openSer() {
+		  document.getElementById("search_bar").style.width = "100%";
+		}
+
+		function closeSer() {
+		  document.getElementById("search_bar").style.width = "0";
+		}
+
+		// Comments Script
+		$(document).ready(function(){
+			$(".onen_fnc").on("click",function(){
+				var $this = $(this);
+				$this.next().slideToggle();
+			})
+		});
+
+		// Message, Notification and Profile opener Script in header
+
+		// For message
+		function msFnc() {
+		  document.getElementById("mDropdown").classList.toggle("show_mn");
+		  document.getElementById("nDropdown").classList.remove("show_mn");
+		  document.getElementById("pDropdown").classList.remove("show_mn");
+		  // Close the dropdown if the user clicks outside of it
+			window.onclick = function(event) {
+				if (!event.target.matches('.mdropbtn>img, .mnu_body>a')) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains('show_mn')) {
+							openDropdown.classList.remove('show_mn');
+						}
+					}
+				}
+			}
+		}
+
+		// For Notificaton
+		function notFnc() {
+			document.getElementById("nDropdown").classList.toggle("show_mn");
+			document.getElementById("mDropdown").classList.remove("show_mn");
+			document.getElementById("pDropdown").classList.remove("show_mn");
+			// Close the dropdown if the user clicks outside of it
+			window.onclick = function(event) {
+				if (!event.target.matches('.ndropbtn>img, .mnu_body>a')) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains('show_mn')) {
+						openDropdown.classList.remove('show_mn');
+						}
+					}
+				}
+			}
+		}
+
+		// For Profile
+		function proFnc() {
+			document.getElementById("pDropdown").classList.toggle("show_mn");
+			document.getElementById("mDropdown").classList.remove("show_mn");
+			document.getElementById("nDropdown").classList.remove("show_mn");
+			// Close the dropdown if the user clicks outside of it
+			window.onclick = function(event) {
+				if (!event.target.matches('.pdropbtn>img, .mnu_body>a')) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains('show_mn')) {
+						openDropdown.classList.remove('show_mn');
+						}
+					}
+				}
+			}
+		}
+
+		//Post Upload Script
+		function openpuf() {
+		  document.getElementById("post_upload_form").style.display = "block";
+		}
+		function closepuf() {
+		  document.getElementById("post_upload_form").style.display = "none";
+		}
+
+		// Edit bio
+		function Editbio() {
+		  document.getElementById("edit_bio").classList.toggle("show_editbio");
+		}
+
+		// Edit Post
+		function epoFnc() {
+		  document.getElementById("edit_po").classList.toggle("show_editpo");
+		  // Close the dropdown if the user clicks outside of it
+			window.onclick = function(event) {
+				if (!event.target.matches('.epobtn, .epo>a')) {
+					var dropdowns = document.getElementsByClassName("edit_post_opt");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains('show_editpo')) {
+						openDropdown.classList.remove('show_editpo');
+						}
+					}
+				}
+			}
+		}
+
+		//Scroll Shadow Effect
+		$(window).scroll(function() {
+			var scroll = $(window).scrollTop();
+			if (scroll > 40) {
+				$("#navbar").addClass("shadow");
+			}
+			else {
+				$("#navbar").removeClass("shadow");
+			}
+		});
+	</script>
+	<!--End Script-->
+
+	{% block content %}
+
+
+    {% endblock %}
+
+</body>
+</html>
